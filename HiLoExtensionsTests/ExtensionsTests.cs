@@ -58,6 +58,15 @@ namespace HiLoExtensionsTests
         }
 
         [Test]
+        [Description( "FluentAssertions fail to compare List in Tuple" )]
+        public void Copy_Tuple_ShouldBeEqual( )
+        {
+            var expected = Tuple.Create( 27, "Ted", 5.2d );
+            var actual = expected.Copy( );
+            actual.ShouldBeEquivalentTo( expected );
+        }
+
+        [Test]
         [Description( "FluentAssertions fail to compare List in ValueTuple" )]
         public void Copy_ValueTuple_ShouldBeEqual( )
         {
